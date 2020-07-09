@@ -2,6 +2,7 @@ import React from 'react'
 import { AppBar, Toolbar, Container, Typography, Button } from '@material-ui/core'
 import { IApplicationBarProps } from './Interfaces'
 import useStyles from './styles'
+import { navigate } from '@reach/router'
 
 const AppicationBar: React.FC<IApplicationBarProps> = ({ user }) => {
   const classes = useStyles({})
@@ -16,7 +17,7 @@ const AppicationBar: React.FC<IApplicationBarProps> = ({ user }) => {
             !!user ? (
               <React.Fragment></React.Fragment>
             ) : (
-              <Button variant='contained' color='secondary'>
+              <Button variant='contained' color='secondary' onClick={() => navigate('/sign-in')}>
                 Efetuar Login
               </Button>
             )

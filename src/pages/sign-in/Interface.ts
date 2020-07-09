@@ -14,9 +14,9 @@ export interface ISignInViewProps {
   state: SignInState
   toggleResetPasswodDialog: () => void
   submitSignInForm: (payload: ISignInPayload) => Promise<void>
-  submitResetPasswordForm: (payload: IResetPasswordPayload) => Promise<void>
+  submitResetPasswordForm: (payload: IResetPasswordPayload) => Promise<boolean>
   validateSignInForm: (payload: ISignInPayload) => Partial<ISignInPayload>
-  validateResetPasswordForm: (payload: ISignInPayload) => Partial<ISignInPayload>
+  validateResetPasswordForm: (payload: IResetPasswordPayload) => Partial<IResetPasswordPayload>
 }
 
 export interface ISignInProviderProps {

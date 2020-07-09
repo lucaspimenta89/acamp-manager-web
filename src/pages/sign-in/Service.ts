@@ -32,13 +32,27 @@ export class SignInPageService extends ServiceBase<SignInState, SignInActions> {
         payload
       )
 
-    if (statusCode !== 201) {
+    if (statusCode !== 200) {
       return [null, error]
     }
 
     Vault.setToken(result?.data.token as string)
 
     return [result?.data as IUserContract, null]
+  }
+
+  async submitResetPasswordForm(payload: IResetPasswordPayload): Promise<[string | null, string | null]> {
+    const [result, statusCode, error] = await Http
+      .post<IResetPasswordPayload, string>(
+        '/account/request-reset-password',
+        payload
+      )
+
+    if (statusCode !== 201) {
+      return [null, error]
+    }
+
+    return [result?.data as string, null]
   }
 
   toggleResetPasswordDialog() {

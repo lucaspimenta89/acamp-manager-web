@@ -5,7 +5,10 @@ const theme = createMuiTheme({
     MuiCssBaseline: {
       '@global': {
         body: {
-          paddingTop: '60px'
+          paddingTop: '64px',
+          paddingBottom: '64px',
+          minHeight: '100vh',
+          minWidth: '100vw'
         }
       }
     }

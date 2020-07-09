@@ -20,9 +20,9 @@ const SignInProvider: React.FC<ISignInProviderProps> = ({ children }) => {
 
   async function submitSignInForm(payload: ISignInPayload) {
     const [user, error] = await SignInService.submitSignInForm(payload)
-
+    
     if (error) {
-      emitError(error)
+      emitError('Email e/ou senha inválidos')
     } else {
       emitSuccess(`Bem vindo! ${user?.name}`)
       SessionManagerService.setUser(user as IUserContract)
@@ -30,8 +30,16 @@ const SignInProvider: React.FC<ISignInProviderProps> = ({ children }) => {
     }
   }
 
-  async function submitResetPasswordForm(payload: IResetPasswordPayload) {
+  async function submitResetPasswordForm(payload: IResetPasswordPayload): Promise<boolean> {
+    const [, error] = await SignInService.submitResetPasswordForm(payload)
 
+    if (error) {
+      emitError(error)
+      return false
+    } 
+
+    emitSuccess('Solicitação recebida com sucesso! Verifique seu email.')
+    return true
   }
 
   return (

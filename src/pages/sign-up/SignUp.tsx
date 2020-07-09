@@ -20,8 +20,6 @@ import {
 import { Formik } from 'formik'
 import PhoneInput from '../../components/PhoneInput'
 import CpfInput from '../../components/CpfInput'
-import Vault from '../../lib/Vault'
-import { navigate } from '@reach/router'
 
 const SignUpPage: React.FC<ISignUpViewProps> = ({ submitForm, validateSignUpForm }) => {
   const classes = useStyles({})
