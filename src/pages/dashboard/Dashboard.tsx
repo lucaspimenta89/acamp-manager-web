@@ -127,13 +127,13 @@ const DashboardView: React.FC<IDashboardViewProps> = ({
             Termos de Serviço
           </Typography>
           <Typography variant='body1' className={classes.paragraph}>
-            Caso esteja em vigor um decreto ou orientação do poder público que venha recomendar ou proibir a aglomeração de pessoas, ou realização de eventos, o Acampamento Jovem 2021, será cancelado.
+            Concordo que, caso esteja em vigor um decreto ou orientação do poder público que venha recomendar ou proibir a aglomeração de pessoas, ou realização de eventos, o Acampamento Jovem 2021, será cancelado.
           </Typography>
           <Typography variant='body1' className={classes.paragraph}>
-            Na impossibilidade de ocorrer o Acampamento Jovem 2021, os pagamentos até então acertados, serão devolvidos aos acampantes no prazo de 10 dias, após a data do cancelamento.
+            Concordo que, na impossibilidade de ocorrer o Acampamento Jovem 2021, os pagamentos até então acertados, serão devolvidos aos acampantes no prazo de 10 dias, após a data do cancelamento.
           </Typography>
           <Typography variant='body1' className={classes.paragraph}>
-            No caso de desistência do acampante, o mesmo receberá a devolução do valor pago, seguuindo os seguintes critérios:
+            Concordo que, no caso de desistência do acampante, o mesmo receberá a devolução do valor pago, seguuindo os seguintes critérios:
           </Typography>
           <Typography variant='body1' className={classes.paragraph}>
             - Desistência até 10/12/2020, o acampante receberá 100% do valor pago

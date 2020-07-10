@@ -8,7 +8,7 @@ const theme = createMuiTheme({
           paddingTop: '64px',
           paddingBottom: '64px',
           minHeight: '100vh',
-          minWidth: '100vw'
+          maxWidth: '100vw'
         }
       }
     }
