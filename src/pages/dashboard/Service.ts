@@ -97,6 +97,7 @@ export class DashboardService extends ServiceBase<DashboardState, DashboardActio
   }
 
   async addRoomToCart(room: IRoom): Promise<string | null>  {
+    console.log('@@@@@@@', room)
     const error = await this.lockRoom(room.id)
 
     if (error) {

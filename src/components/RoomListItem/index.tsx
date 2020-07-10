@@ -3,6 +3,34 @@ import { IRoomListItemProps } from './Interfaces'
 import useStyles from './styles'
 import { Typography } from '@material-ui/core'
 
+import {
+  Master,
+  MasterDeluxe,
+  MasterPlus,
+  Quiosque,
+  Standard,
+  StandardPlus
+} from '../../assets'
+
+function getImageForRoomType(type: string): any {
+  switch(type) {
+    case 'master-deluxe':
+      return MasterDeluxe
+    case 'master-plus':
+      return MasterPlus
+    case 'master':
+      return Master
+    case 'standard-plus':
+      return StandardPlus
+    case 'standard':
+      return Standard
+    case 'quiosque':
+      return Quiosque
+    default:
+      return ''
+  }
+}
+
 const RoomListItem: React.FC<IRoomListItemProps> = ({
   type,
   name,
@@ -13,7 +41,7 @@ const RoomListItem: React.FC<IRoomListItemProps> = ({
   return (
     <div className={classes.root}>
       <div className={classes.imageContainer}>
-        <img src='http://lorempixel.com/240/240/city/' alt={type} />
+        <img src={getImageForRoomType(type)} alt={type} />
       </div>
       <div className={classes.description}>
         <Typography variant='h6'>

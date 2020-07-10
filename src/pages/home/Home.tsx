@@ -21,29 +21,34 @@ const Home: React.FC<IHomePageProps> = ({ onSetSubsInfoTab, state }) => {
 
   const rooms = [{
     name: 'Master Deluxe',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla et lectus nec luctus. Integer vehicula sagittis felis, rhoncus ullamcorper libero. Nunc id tortor consectetur, varius arcu in, posuere leo.',    
+    description: '1 Cama de casal; 3 Beliches; Ar Condicionado; Banheiro',    
     price: '850,00',
     type: 'master-deluxe'
   }, {
     name: 'Master Plus',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla et lectus nec luctus. Integer vehicula sagittis felis, rhoncus ullamcorper libero. Nunc id tortor consectetur, varius arcu in, posuere leo.',    
+    description: '1 Cama de casal; 2 Beliches; Ar Condicionado; Banheiro',    
     price: '750,00',
     type: 'master-plus'
   }, {
     name: 'Master',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla et lectus nec luctus. Integer vehicula sagittis felis, rhoncus ullamcorper libero. Nunc id tortor consectetur, varius arcu in, posuere leo.',    
-    price: '750,00',
+    description: '1 Cama de casal; 1 Beliche; 1 Cama de casal, Ar Condicionado; Banheiro',    
+    price: '650,00',
     type: 'master'
   }, {
     name: 'Standard Plus',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla et lectus nec luctus. Integer vehicula sagittis felis, rhoncus ullamcorper libero. Nunc id tortor consectetur, varius arcu in, posuere leo.',    
-    price: '650,00',
+    description: '1 Cama de casal; 1 Beliche; Ar Condicionado; Banheiro',    
+    price: '550,00',
     type: 'standard-plus'
   }, {
     name: 'Standard',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla et lectus nec luctus. Integer vehicula sagittis felis, rhoncus ullamcorper libero. Nunc id tortor consectetur, varius arcu in, posuere leo.',    
-    price: '550,00',
+    description: '1 Cama de casal; 1 Cama de solteiro; Ar Condicionado; Banheiro',    
+    price: '450,00',
     type: 'standard'
+  }, {
+    name: 'Quiosque',
+    description: 'Área coberta; Pia exclusiva; ideal para barraca de 4 pessoas',
+    price: '150,00',
+    type: 'quiosque'
   }]
 
   return (
@@ -130,7 +135,7 @@ const Home: React.FC<IHomePageProps> = ({ onSetSubsInfoTab, state }) => {
         </div>
         <div role="tabpanel" className={classes.tabContainer} hidden={state.currentSubsInfoTab !== 'quiosques'}>
           <RoomListItem
-            description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla et lectus nec luctus. Integer vehicula sagittis felis, rhoncus ullamcorper libero. Nunc id tortor consectetur, varius arcu in, posuere leo.'
+            description='Área coberta; Pia exclusiva; ideal para barraca de 4 pessoas'
             name='Quiosque'
             type='quiosque'
             price='150,00'

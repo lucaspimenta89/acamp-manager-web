@@ -191,7 +191,7 @@ const DashboardView: React.FC<IDashboardViewProps> = ({
           <Grid item sm={9}>
             {
               state.availableRooms.length > 0 && (
-                <React.Fragment>
+                <Paper className={classes.cartPaper}>
                   <Typography variant='h6'>
                     Quartos
                   </Typography>
@@ -201,7 +201,7 @@ const DashboardView: React.FC<IDashboardViewProps> = ({
                         state.availableRooms.map((item, index) => (
                           <ListItem key={index}>
                             <ListItemText 
-                              primary={`${item.name} - ${item.price}`}
+                              primary={`${item.name} - ${numeral(item.price / 100).format('$0,0.00')}`}
                               secondary={item.description} />
                             <ListItemSecondaryAction>
                               <Button 
@@ -217,7 +217,7 @@ const DashboardView: React.FC<IDashboardViewProps> = ({
                       }
                     </List>
                   </div>
-                </React.Fragment>
+                </Paper>
               )
             }
             <Paper className={classes.cartPaper}>

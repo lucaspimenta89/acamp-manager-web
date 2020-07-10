@@ -5,7 +5,8 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between'    
+    justifyContent: 'space-between',
+    width: '100%'
   },
   imageContainer: {
     width: 240,
