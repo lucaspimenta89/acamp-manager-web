@@ -1,7 +1,7 @@
 export default class Env {
   static getEnv() {
     const apiBaseUrl = process.env.NODE_ENV === 'production'
-      ? 'api_url'
+      ? 'https://acamp-manager-api.herokuapp.com/api'
       : 'http://localhost:4000/api'
 
     return {

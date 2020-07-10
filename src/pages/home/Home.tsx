@@ -44,11 +44,6 @@ const Home: React.FC<IHomePageProps> = ({ onSetSubsInfoTab, state }) => {
     description: '1 Cama de casal; 1 Cama de solteiro; Ar Condicionado; Banheiro',    
     price: '450,00',
     type: 'standard'
-  }, {
-    name: 'Quiosque',
-    description: 'Área coberta; Pia exclusiva; ideal para barraca de 4 pessoas',
-    price: '150,00',
-    type: 'quiosque'
   }]
 
   return (
@@ -87,16 +82,12 @@ const Home: React.FC<IHomePageProps> = ({ onSetSubsInfoTab, state }) => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fringilla et lectus nec luctus. Integer vehicula sagittis felis, rhoncus ullamcorper libero. Nunc id tortor consectetur, varius arcu in, posuere leo. Sed hendrerit purus a sem dignissim accumsan. Donec feugiat risus quam, eget tristique quam ornare at. Duis ut lacus viverra, luctus ipsum id, consectetur metus. Etiam a mi id neque molestie congue. Donec semper eros vitae tellus tempor, eget varius risus lobortis. Nullam eget nisi libero. Nullam pretium sed sem sed tristique. Nullam ornare pharetra gravida. In porta leo vitae vulputate malesuada. 
           </Typography>
           
-          <Typography variant='h4' className={classes.sectionTitle}>
-            Fotos do local
-          </Typography>
-          <div className={classes.videosContainer} />
+          <div className={classes.videosContainer}>
+            <iframe title='Vídeo Lançamento' width="560" height="315" src="https://www.youtube.com/embed/48EmpJ_jASg" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+            <iframe title='Vídeo Informativo' width="560" height="315" src="https://www.youtube.com/embed/hdHsGfCWbuc" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+          </div>
 
-          <Typography variant='h4' className={classes.sectionTitle}>
-            Videos
-          </Typography>
-
-          <div className={classes.videosContainer} />
+          
         </div>
 
         <div role="tabpanel" className={classes.tabContainer} hidden={state.currentSubsInfoTab !== 'subscriptions'}>

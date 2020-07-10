@@ -38,8 +38,11 @@ export default makeStyles((theme) => ({
     margin: '20px 0 20px 0 !important' 
   },
   videosContainer: {
-    height: '350px',
-    backgroundColor: '#cccccc'
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    flexWrap: 'wrap',
+    margin: '25px 0 25px 0'
   },
   tabContainer: {
     minHeight: 500,
