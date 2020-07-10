@@ -101,6 +101,7 @@ export class DashboardService extends ServiceBase<DashboardState, DashboardActio
     const error = await this.lockRoom(room.id)
 
     if (error) {
+      await this.loadAvailableRooms()
       return error
     }
 

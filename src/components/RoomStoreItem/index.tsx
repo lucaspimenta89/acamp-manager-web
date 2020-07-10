@@ -1,7 +1,10 @@
 import React from 'react'
-import { IRoomListItemProps } from './Interfaces'
-import useStyles from './styles'
-import { Typography, Paper } from '@material-ui/core'
+import { Paper, Typography, Button } from '@material-ui/core'
+import 'numeral/locales/pt-br'
+import numeral from 'numeral'
+import useStyles from './style'
+
+import { IRoomStoreItemProps } from './Interface'
 
 import {
   Master,
@@ -11,6 +14,8 @@ import {
   Standard,
   StandardPlus
 } from '../../assets'
+
+numeral.locale('pt-br')
 
 function getImageForRoomType(type: string): any {
   switch(type) {
@@ -31,20 +36,22 @@ function getImageForRoomType(type: string): any {
   }
 }
 
-const RoomListItem: React.FC<IRoomListItemProps> = ({
-  type,
-  name,
+const RoomStoreItem: React.FC<IRoomStoreItemProps> = ({
   description,
-  price 
+  disabled,
+  name,
+  onAddToCart,
+  price,
+  type
 }) => {
   const classes = useStyles({})
   return (
-    <Paper className={classes.paper}>
-      <div className={classes.root}>
+    <Paper className={classes.paper}> 
+      <div className={classes.content} >
         <div className={classes.imageContainer}>
           <img src={getImageForRoomType(type)} alt={type} />
         </div>
-        <div className={classes.description}>
+        <div className={classes.descriptionContainer}>
           <Typography variant='h6'>
             {name}
           </Typography>
@@ -52,13 +59,21 @@ const RoomListItem: React.FC<IRoomListItemProps> = ({
             {description}
           </p>
           <Typography variant='h6'>
-            R$ {price}
+            {numeral(price / 100).format('$0,0.00')}
           </Typography>
         </div>
       </div>
+      <div className={classes.actionsContainer}>
+        <Button 
+          color="secondary" 
+          type="button"
+          onClick={onAddToCart}
+          disabled={disabled}>
+          ADICIONAR
+        </Button>
+      </div>
     </Paper>
-    
   )
 }
 
-export default RoomListItem
+export default RoomStoreItem

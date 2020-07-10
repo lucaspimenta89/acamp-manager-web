@@ -1,14 +1,19 @@
 import React from 'react'
 import useStyles from './Dashboard.styles'
 import {
-  IDashboardViewProps, RoomPaymentMethod
+  IDashboardViewProps, RoomPaymentMethod, SubscriptionType
 } from './Interface'
 import Provider from './Provider'
-import { Typography, ListItem, List, Paper, Grid, ListItemText, ListItemSecondaryAction, Button, Dialog, DialogTitle, DialogContent, FormControl, InputLabel, Select, MenuItem, FormHelperText, DialogActions } from '@material-ui/core'
+import { Typography, ListItem, List, Paper, Grid, ListItemText, ListItemSecondaryAction, Button, Dialog, DialogTitle, DialogContent, FormControl, InputLabel, Select, MenuItem, FormHelperText, DialogActions, Divider } from '@material-ui/core'
 import OrderSummary from '../../components/OrderSummary'
 import numeral from 'numeral'
+
+import RoomStoreItem from '../../components/RoomStoreItem'
+import VoucherStoreItem from '../../components/VoucherStoreItem'
+
 import 'numeral/locales/pt-br'
 numeral.locale('pt-br')
+
 
 
 const DashboardView: React.FC<IDashboardViewProps> = ({
@@ -23,6 +28,27 @@ const DashboardView: React.FC<IDashboardViewProps> = ({
   toggleTermsDialog
 }) => {
   const classes = useStyles({})
+
+  const subscriptionsTypes = [
+    {
+      name: 'Inteira',
+      description: 'Para maiores de 12 anos de idade',
+      subscription_type: 'full',
+      price: 22000
+    },
+    {
+      name: 'Meia entrada',
+      description: 'Para crianças de 6 à 12 anos de idade',
+      subscription_type: 'half',
+      price: 11000
+    },
+    {
+      name: 'Isenta',
+      description: 'Para crianças de 0 à 5 anos e 11 meses de idade',
+      subscription_type: 'zero',
+      price: 0
+    }
+  ]
 
   return (
     <React.Fragment>
@@ -187,97 +213,75 @@ const DashboardView: React.FC<IDashboardViewProps> = ({
         <Typography variant='h6'>
           Nova reserva
         </Typography>
+        <Typography variant="subtitle1">
+          Adicione todos os items que você deseja reservar e depois clique em <strong>"EFETUAR RESERVA"</strong>.
+        </Typography>
+        <Typography variant="subtitle1">
+          É permitido apenas 1 quarto por ordem de reseva, para reservar multiplos quartos repita o processo adicionando o
+          quarto desejado e efetuando a reserva.
+        </Typography>
+        <Typography variant="subtitle1">
+          Você pode reservar quantas inscrições desejar, fique atento aos critérios da reservar.
+          Lembrando que serão reservados apenas os vouchers, em outro momento será necessário o preenchimento
+          das fichas de cada acampante.
+        </Typography>
+        <Divider className={classes.divider} />
         <Grid container spacing={2} >          
           <Grid item sm={9}>
-            {
-              state.availableRooms.length > 0 && (
-                <Paper className={classes.cartPaper}>
-                  <Typography variant='h6'>
-                    Quartos
-                  </Typography>
-                  <div>
-                    <List>
-                      {
-                        state.availableRooms.map((item, index) => (
-                          <ListItem key={index}>
-                            <ListItemText 
-                              primary={`${item.name} - ${numeral(item.price / 100).format('$0,0.00')}`}
-                              secondary={item.description} />
-                            <ListItemSecondaryAction>
-                              <Button 
-                                color="secondary" 
-                                type="button"
-                                onClick={() => addRoomToCart(item)}
-                                disabled={!!state.cart.room}>
-                                ADICIONAR
-                              </Button>
-                            </ListItemSecondaryAction>
-                          </ListItem>
-                        ))
+            <Grid container>
+              <Grid item sm={6}>                
+                <Typography variant='h6'>
+                  Vouchers de inscrição
+                </Typography>
+                {
+                  subscriptionsTypes.map((it, index) => (
+                    <VoucherStoreItem 
+                      key={index}
+                      description={it.description}
+                      name={it.name}
+                      price={it.price}
+                      subscriptionType={it.subscription_type}
+                      onAddVoucher={
+                        () => {
+                          addSubscription({
+                            description: it.name,
+                            price: it.price,
+                            subscription_type: it.subscription_type as SubscriptionType
+                          })
+                        }
                       }
-                    </List>
-                  </div>
-                </Paper>
-              )
-            }
-            <Paper className={classes.cartPaper}>
-              <Typography variant='h6'>
-                Vouchers de inscrições
-              </Typography>
-              <List>
-                <ListItem>
-                  <ListItemText 
-                    primary="Inscrição inteira - R$ 220,00"
-                    secondary="Maiores de 12 anos de idade" />
-                  <ListItemSecondaryAction>
-                    <Button 
-                      color="secondary" 
-                      type="button"
-                      onClick={() => addSubscription({
-                        description: 'Inteira',
-                        price: 22000,
-                        subscription_type: 'full'
-                      })}>
-                      ADICIONAR
-                    </Button>
-                  </ListItemSecondaryAction>
-                </ListItem>
-                <ListItem>
-                  <ListItemText 
-                    primary="Inscrição meia entrada - R$ 110,00"
-                    secondary="Para crianças de 6 à 12 anos de idade" />
-                  <ListItemSecondaryAction>
-                    <Button 
-                      color="secondary" 
-                      type="button"
-                      onClick={() => addSubscription({
-                        description: 'Meia entrada',
-                        price: 11000,
-                        subscription_type: 'half'
-                      })}>
-                      ADICIONAR
-                    </Button>
-                  </ListItemSecondaryAction>
-                </ListItem>
-                <ListItem>
-                  <ListItemText 
-                    primary="Inscrição isenta - R$ 0,00"
-                    secondary="Para crianças de 0 à 5 anos e 11 meses de idade" />
-                  <ListItemSecondaryAction>
-                    <Button 
-                      color="secondary" 
-                      type="button"
-                      onClick={() => addSubscription({
-                        description: 'Isenta',
-                        price: 0,
-                        subscription_type: 'zero'
-                      })}>
-                      ADICIONAR
-                    </Button>
-                  </ListItemSecondaryAction>
-                </ListItem>
-              </List>
-            </Paper>
+                    />
+                  ))
+                }                          
+              </Grid>
+              <Grid item sm={6}>
+                {
+                  state.availableRooms.length > 0 && (
+                    <React.Fragment>
+                      <Typography variant='h6'>
+                        Quartos
+                      </Typography>
+                      <div className={classes.roomsContainer}>
+                        {
+                          state.availableRooms.map((item, index) => (
+                            <RoomStoreItem 
+                              key={index}
+                              id={item.id}
+                              description={item.description}
+                              name={item.name}
+                              price={item.price}
+                              type={item.type}  
+                              onAddToCart={() => addRoomToCart(item)}
+                              disabled={!!state.cart.room}                          
+                            />
+                          ))
+                        }
+                      </div>
+                    </React.Fragment>
+                  )
+                }                
+              </Grid>
+            </Grid>            
           </Grid>
           <Grid item sm={3}>
             <Paper className={classes.cartPaper} >            

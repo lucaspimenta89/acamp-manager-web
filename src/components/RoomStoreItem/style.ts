@@ -6,31 +6,33 @@ export default makeStyles((theme) => ({
     maxWidth: '560px',
     margin: '10px'
   },
-  root: { 
+  content: {
+    padding: '15px',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    width: '100%',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
     }
   },
   imageContainer: {
-    width: 180,
-    height: 180,
-    '& img': {
-      width: 180,
-      height: 180,
+    width: '180px',
+    height: '180px',
+    "& img": {
+      width: '180px',
+      height: '180px',
     }
   },
-  description: {    
-    flexGrow: 1,
-    padding: 15
+  descriptionContainer: {
+    padding: '10px'
   },
-  priceContainer: {
-    minWidth: 100  
+  actionsContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end'
   }
 }))

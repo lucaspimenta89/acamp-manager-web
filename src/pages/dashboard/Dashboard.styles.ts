@@ -22,5 +22,12 @@ export default makeStyles((theme) => ({
   },
   paragraph: {
     margin: '15px 0 15px 0'
+  },
+  divider: {
+    margin: '25px 0'
+  },
+  roomsContainer: {
+    maxHeight: '450px',
+    overflowY: 'auto'
   }
 }))
