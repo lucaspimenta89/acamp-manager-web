@@ -7,6 +7,7 @@ import ApplicationRoutes from './config/ApplicationRoutes'
 
 import NotificationProvider from './components/NotificationProvider'
 
+
 function App() {
   return (
     <ThemeProvider theme={MainTheme}>

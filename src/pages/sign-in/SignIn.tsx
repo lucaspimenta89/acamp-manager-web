@@ -17,6 +17,7 @@ import {
 } from '@material-ui/core'
 
 import { Formik } from 'formik'
+import { navigate } from '@reach/router'
 
 const SignInPage: React.FC<ISignInViewProps> = ({ 
   state, 
@@ -154,6 +155,11 @@ const SignInPage: React.FC<ISignInViewProps> = ({
                     </Button>
                     <Button type='submit' color='secondary' disabled={isSubmitting} variant='contained'>
                       Enviar
+                    </Button>
+                  </Box>
+                  <Box display='flex' flexDirection='row' alignItems='center'>
+                    <Button type='button' onClick={() => navigate('/sign-up')} color='secondary' disabled={isSubmitting}>
+                      Não tem login?
                     </Button>
                   </Box>
                 </form>

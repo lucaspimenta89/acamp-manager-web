@@ -44,5 +44,8 @@ export default makeStyles((theme) => ({
   tabContainer: {
     minHeight: 500,
     padding: 15
+  },
+  paragraph: {
+    marginBottom: '15px'
   }
 }))

@@ -9,6 +9,7 @@ import Home from '../pages/home/Home'
 import SignUp from '../pages/sign-up/SignUp'
 import SignIn from '../pages/sign-in/SignIn'
 import ResetPassword from '../pages/reset-password/ResetPassword'
+import Dashboard from '../pages/dashboard/Dashboard'
 
 export interface IRouteDefinition {
   id: string,
@@ -46,6 +47,15 @@ const routes: IRouteDefinition[] = [
     component: (props: any) => (
       <MainLayout {...props}>
         <ResetPassword {...props} />
+      </MainLayout>
+    )
+  },
+  {
+    id: 'dashboard',
+    path: '/dashboard',
+    component: (props: any) => (
+      <MainLayout {...props}>
+        <Dashboard {...props} />
       </MainLayout>
     )
   }

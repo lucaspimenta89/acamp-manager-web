@@ -70,6 +70,7 @@ const Home: React.FC<IHomePageProps> = ({ onSetSubsInfoTab, state }) => {
             <Tab label="Inscrições" value='subscriptions' />
             <Tab label="Quartos" value='rooms' />
             <Tab label="Quiosques" value='quiosques' />
+            <Tab label="Termos de serviço" value='terms-of-service' />
           </Tabs>          
         </AppBar>
 
@@ -134,6 +135,29 @@ const Home: React.FC<IHomePageProps> = ({ onSetSubsInfoTab, state }) => {
             type='quiosque'
             price='150,00'
           />
+        </div>
+        <div role="tabpanel" className={classes.tabContainer} hidden={state.currentSubsInfoTab !== 'terms-of-service'}>
+          <Typography variant='h6'>
+            Termos de Serviço
+          </Typography>
+          <Typography variant='body1' className={classes.paragraph}>
+            Caso esteja em vigor um decreto ou orientação do poder público que venha recomendar ou proibir a aglomeração de pessoas, ou realização de eventos, o Acampamento Jovem 2021, será cancelado.
+          </Typography>
+          <Typography variant='body1' className={classes.paragraph}>
+            Na impossibilidade de ocorrer o Acampamento Jovem 2021, os pagamentos até então acertados, serão devolvidos aos acampantes no prazo de 10 dias, após a data do cancelamento.
+          </Typography>
+          <Typography variant='body1' className={classes.paragraph}>
+            No caso de desistência do acampante, o mesmo receberá a devolução do valor pago, seguuindo os seguintes critérios:
+          </Typography>
+          <Typography variant='body1' className={classes.paragraph}>
+            - Desistência até 10/12/2020, o acampante receberá 100% do valor pago
+          </Typography>
+          <Typography variant='body1' className={classes.paragraph}>
+            - Desistência até 10/01/2021, o acampante receberá apenas 90% do valor pago
+          </Typography>
+          <Typography variant='body1' className={classes.paragraph}>
+            - Desistência até 08/02/2021, o acampante receberá apenas 70% do valor pago
+          </Typography>  
         </div>
 
       </Container>

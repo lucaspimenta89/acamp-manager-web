@@ -12,6 +12,7 @@ import reducer from './store/Reducer'
 import { SessionManagerState, sessionManagerState } from './store/State'
 import { IUserContract } from '../../contracts/IUserContract'
 import Http from '../../lib/Http'
+import Vault from '../../lib/Vault'
 
 export class SessionManagerService extends ServiceBase<SessionManagerState, SessionManagerActions> {
 
@@ -45,6 +46,17 @@ export class SessionManagerService extends ServiceBase<SessionManagerState, Sess
     this.dispatch(setUser(result?.data as IUserContract))
 
     return null
+  }
+
+  async signOut(): Promise<string | null> {
+    const [, status, error] = await Http.get<string>('/session/sign-out')
+
+    if (status === 200) {
+      Vault.clearToken()
+      this.reset()
+    }
+
+    return error
   }
 
   reset() {

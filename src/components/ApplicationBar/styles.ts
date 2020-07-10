@@ -6,5 +6,17 @@ export default makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1
+  },
+  icon: {
+    color: '#ffffff'
+  },
+  homeButton: {
+    textDecoration: 'none',
+    color: '#ffffff',
+    fontSize: '18px',
+    fontWeight: 400,
+    '&:hover': {
+      textDecoration: 'none',
+    }
   }
 }))
