@@ -5,18 +5,15 @@ import PageFooter from '../../components/PageFooter'
 import { navigate } from '@reach/router'
 
 import {
-  Container, Typography, AppBar, Tabs, Tab, Button, List, ListItem, ListItemText
+  Container, Typography, Button, List, ListItem, ListItemText
 } from '@material-ui/core'
 
 import Provider from './Provider'
 import { IHomePageProps } from './Interfaces'
 
-import { 
-  HomePageSubscriptionEnum
-} from './store/State'
 import RoomListItem from '../../components/RoomListItem'
 
-const Home: React.FC<IHomePageProps> = ({ onSetSubsInfoTab, state }) => {
+const Home: React.FC<IHomePageProps> = () => {
   const classes = useHomeStyles({})
 
   const rooms = [{
@@ -64,17 +61,10 @@ const Home: React.FC<IHomePageProps> = ({ onSetSubsInfoTab, state }) => {
         </Container>
       </div>
       <Container>        
-        <AppBar position="relative">
-          <Tabs value={state.currentSubsInfoTab} onChange={(event: any, newValue: string) => onSetSubsInfoTab(newValue as HomePageSubscriptionEnum) }>
-            <Tab label="Informações Gerais" value='info' />
-            <Tab label="Inscrições" value='subscriptions' />
-            <Tab label="Quartos" value='rooms' />
-            <Tab label="Quiosques" value='quiosques' />
-            <Tab label="Termos de serviço" value='terms-of-service' />
-          </Tabs>          
-        </AppBar>
-
-        <div role="tabpanel" className={classes.tabContainer} hidden={state.currentSubsInfoTab !== 'info'}>
+        <div className={classes.sectionTitlePill}>
+          Informações Gerais
+        </div>
+        <div className={classes.tabContainer}>
           <Typography variant='h4' className={classes.sectionTitleLocal}>
             Local
           </Typography>
@@ -85,12 +75,12 @@ const Home: React.FC<IHomePageProps> = ({ onSetSubsInfoTab, state }) => {
           <div className={classes.videosContainer}>
             <iframe title='Vídeo Lançamento' width="560" height="315" src="https://www.youtube.com/embed/48EmpJ_jASg" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             <iframe title='Vídeo Informativo' width="560" height="315" src="https://www.youtube.com/embed/hdHsGfCWbuc" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-          </div>
-
-          
+          </div>          
         </div>
-
-        <div role="tabpanel" className={classes.tabContainer} hidden={state.currentSubsInfoTab !== 'subscriptions'}>
+        <div className={classes.sectionTitlePill}>
+          Inscrições
+        </div>
+        <div className={classes.tabContainer}>
           <Typography variant='h4' className={classes.sectionTitleLocal}>
             Preços até Novembro/2020
           </Typography>
@@ -105,26 +95,27 @@ const Home: React.FC<IHomePageProps> = ({ onSetSubsInfoTab, state }) => {
               <ListItemText primary='Isento' secondary="de 0 à 5 anos e 11 meses de idade" />
             </ListItem>
           </List>
-
         </div>
-
-        <div role="tabpanel" className={classes.tabContainer} hidden={state.currentSubsInfoTab !== 'rooms'}>
-          <List>
-            {
-              rooms.map((it, index) => (
-                <ListItem key={index}>
-                  <RoomListItem
-                    description={it.description}
-                    name={it.name}
-                    type={it.type}
-                    price={it.price}
-                  />
-                </ListItem>
-              ))
-            }
-          </List>
+        <div className={classes.sectionTitlePill}>
+          Quartos
         </div>
-        <div role="tabpanel" className={classes.tabContainer} hidden={state.currentSubsInfoTab !== 'quiosques'}>
+        <div className={classes.tabContainer}>          
+          {
+            rooms.map((it, index) => (
+                <RoomListItem
+                  key={index}
+                  description={it.description}
+                  name={it.name}
+                  type={it.type}
+                  price={it.price}
+                />
+            ))
+          }          
+        </div>
+        <div className={classes.sectionTitlePill}>
+          Quiosques
+        </div>
+        <div className={classes.tabContainer}>
           <RoomListItem
             description='Área coberta; Pia exclusiva; ideal para barraca de 4 pessoas'
             name='Quiosque'
@@ -132,10 +123,10 @@ const Home: React.FC<IHomePageProps> = ({ onSetSubsInfoTab, state }) => {
             price='150,00'
           />
         </div>
-        <div role="tabpanel" className={classes.tabContainer} hidden={state.currentSubsInfoTab !== 'terms-of-service'}>
-          <Typography variant='h6'>
-            Termos de Serviço
-          </Typography>
+        <div className={classes.sectionTitlePill}>
+          Termos de serviço
+        </div>        
+        <div className={classes.tabContainer}>          
           <Typography variant='body1' className={classes.paragraph}>
             Caso esteja em vigor um decreto ou orientação do poder público que venha recomendar ou proibir a aglomeração de pessoas, ou realização de eventos, o Acampamento Jovem 2021, será cancelado.
           </Typography>
@@ -146,12 +137,8 @@ const Home: React.FC<IHomePageProps> = ({ onSetSubsInfoTab, state }) => {
             No caso de desistência do acampante, o mesmo receberá a devolução do valor pago, seguuindo os seguintes critérios:
           </Typography>
           <Typography variant='body1' className={classes.paragraph}>
-            - Desistência até 10/12/2020, o acampante receberá 100% do valor pago
-          </Typography>
-          <Typography variant='body1' className={classes.paragraph}>
-            - Desistência até 10/01/2021, o acampante receberá apenas 90% do valor pago
-          </Typography>
-          <Typography variant='body1' className={classes.paragraph}>
+            - Desistência até 10/12/2020, o acampante receberá 100% do valor pago <br />    
+            - Desistência até 10/01/2021, o acampante receberá apenas 90% do valor pago <br />
             - Desistência até 08/02/2021, o acampante receberá apenas 70% do valor pago
           </Typography>  
         </div>

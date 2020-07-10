@@ -1,7 +1,7 @@
 import React from 'react'
 import { IRoomListItemProps } from './Interfaces'
 import useStyles from './styles'
-import { Typography } from '@material-ui/core'
+import { Typography, Paper } from '@material-ui/core'
 
 import {
   Master,
@@ -39,24 +39,25 @@ const RoomListItem: React.FC<IRoomListItemProps> = ({
 }) => {
   const classes = useStyles({})
   return (
-    <div className={classes.root}>
-      <div className={classes.imageContainer}>
-        <img src={getImageForRoomType(type)} alt={type} />
+    <Paper className={classes.paper}>
+      <div className={classes.root}>
+        <div className={classes.imageContainer}>
+          <img src={getImageForRoomType(type)} alt={type} />
+        </div>
+        <div className={classes.description}>
+          <Typography variant='h6'>
+            {name}
+          </Typography>
+          <p className={classes.descriptionText}>
+            {description}
+          </p>
+          <Typography variant='h6'>
+            R$ {price}
+          </Typography>
+        </div>
       </div>
-      <div className={classes.description}>
-        <Typography variant='h6'>
-          {name}
-        </Typography>
-        <Typography variant='subtitle1'>
-          {description}
-        </Typography>
-      </div>
-      <div className={classes.priceContainer}>
-        <Typography variant='h6'>
-          R$ {price}
-        </Typography>
-      </div>
-    </div>
+    </Paper>
+    
   )
 }
 

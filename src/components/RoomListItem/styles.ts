@@ -1,19 +1,29 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 export default makeStyles((theme) => ({
+  paper: {
+    padding: '15px',
+    maxWidth: '560px',
+    margin: '10px'
+  },
   root: { 
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    width: '100%'
+    width: '100%',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }
   },
   imageContainer: {
-    width: 240,
-    height: 240,
+    width: 180,
+    height: 180,
     '& img': {
-      width: 240,
-      height: 240,
+      width: 180,
+      height: 180,
     }
   },
   description: {    
@@ -22,5 +32,8 @@ export default makeStyles((theme) => ({
   },
   priceContainer: {
     minWidth: 100  
+  },
+  descriptionText: {
+    
   }
 }))

@@ -12,6 +12,9 @@ export default makeStyles((theme) => ({
     alignContent: 'center',
     justifyContent: 'center',
     position: 'relative',
+    [theme.breakpoints.down('md')]: {
+      marginTop: '-10px'
+    }
   }, 
   heroContainer: {
     position: 'relative',
@@ -28,7 +31,9 @@ export default makeStyles((theme) => ({
     width: '50%',
     [theme.breakpoints.down('md')]: {      
       textAlign: "center",
-      width: '100%'
+      width: '100%',
+      fontSize: '30px',
+      marginBottom: '30px'
     }
   },
   sectionTitleLocal: {
@@ -40,15 +45,30 @@ export default makeStyles((theme) => ({
   videosContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     flexWrap: 'wrap',
+    width: '100%',
     margin: '25px 0 25px 0'
   },
   tabContainer: {
-    minHeight: 500,
-    padding: 15
+    padding: 15,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap'
   },
   paragraph: {
     marginBottom: '15px'
+  },
+  sectionTitlePill: {
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.secondary.contrastText,
+    borderRadius: '12px',
+    fontSize: '18px',
+    fontWeight: 400,
+    padding: '10px',
+    marginBottom: '15px',
+    marginTop: '15px'
   }
 }))

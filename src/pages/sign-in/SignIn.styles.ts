@@ -5,10 +5,13 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    [theme.breakpoints.down('md')]: {
+      padding: '0 15px 0 15px'
+    }
   },
   paper: {
-    width: '500px',
+    maxWidth: '500px',
     padding: '15px'
   },
   formTitle: {

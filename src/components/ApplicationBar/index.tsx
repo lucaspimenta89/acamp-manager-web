@@ -61,7 +61,7 @@ const AppicationBar: React.FC<IApplicationBarProps> = ({ user, onSignOut }) => {
                 </Menu>
               </React.Fragment>
             ) : (
-              <Button variant='contained' color='secondary' onClick={() => navigate('/sign-in')}>
+              <Button color='secondary' onClick={() => navigate('/sign-in')}>
                 Efetuar Login
               </Button>
             )
