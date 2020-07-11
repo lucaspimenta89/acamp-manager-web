@@ -10,6 +10,7 @@ import SignUp from '../pages/sign-up/SignUp'
 import SignIn from '../pages/sign-in/SignIn'
 import ResetPassword from '../pages/reset-password/ResetPassword'
 import Dashboard from '../pages/dashboard/Dashboard'
+import Orders from '../pages/orders-management/OrdersManagement'
 
 export interface IRouteDefinition {
   id: string,
@@ -56,6 +57,15 @@ const routes: IRouteDefinition[] = [
     component: (props: any) => (
       <MainLayout {...props}>
         <Dashboard {...props} />
+      </MainLayout>
+    )
+  }, 
+  {
+    id: 'orders',
+    path: '/orders',
+    component: (props: any) => (
+      <MainLayout {...props}>
+        <Orders {...props} />
       </MainLayout>
     )
   }

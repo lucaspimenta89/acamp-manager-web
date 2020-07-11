@@ -29,6 +29,13 @@ const AppicationBar: React.FC<IApplicationBarProps> = ({ user, onSignOut }) => {
           {
             !!user ? (
               <React.Fragment>
+                {
+                  user.is_admin && (
+                    <Button color="secondary" onClick={() => navigate('/orders')}>
+                      Reservas
+                    </Button>
+                  )
+                }
                 <IconButton
                   aria-label="conta do usuário atual"
                   aria-controls="menu-appbar"

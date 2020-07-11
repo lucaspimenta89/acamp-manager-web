@@ -162,14 +162,9 @@ const DashboardView: React.FC<IDashboardViewProps> = ({
             Concordo que, no caso de desistência do acampante, o mesmo receberá a devolução do valor pago, seguuindo os seguintes critérios:
           </Typography>
           <Typography variant='body1' className={classes.paragraph}>
-            - Desistência até 10/12/2020, o acampante receberá 100% do valor pago
-          </Typography>
-          <Typography variant='body1' className={classes.paragraph}>
-            - Desistência até 10/01/2021, o acampante receberá apenas 90% do valor pago
-          </Typography>
-          <Typography variant='body1' className={classes.paragraph}>
-            - Desistência até 08/02/2021, o acampante receberá apenas 70% do valor pago
-          </Typography>          
+            - Desistência até 10/12/2020, o acampante receberá 100% do valor pago <br />    
+            - Após a data de 10/12/2020, não serão feitas devoluções
+          </Typography>       
         </DialogContent>
         <DialogActions>
           <Button onClick={toggleTermsDialog} color="primary">

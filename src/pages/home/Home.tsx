@@ -28,7 +28,7 @@ const Home: React.FC<IHomePageProps> = () => {
     type: 'master-plus'
   }, {
     name: 'Master',
-    description: '1 Cama de casal; 1 Beliche; 1 Cama de casal, Ar Condicionado; Banheiro',    
+    description: '1 Cama de casal; 1 Beliche; 1 Cama de solteiro, Ar Condicionado; Banheiro',    
     price: '650,00',
     type: 'master'
   }, {
@@ -134,12 +134,11 @@ const Home: React.FC<IHomePageProps> = () => {
             Na impossibilidade de ocorrer o Acampamento Jovem 2021, os pagamentos até então acertados, serão devolvidos aos acampantes no prazo de 10 dias, após a data do cancelamento.
           </Typography>
           <Typography variant='body1' className={classes.paragraph}>
-            No caso de desistência do acampante, o mesmo receberá a devolução do valor pago, seguuindo os seguintes critérios:
+            No caso de desistência do acampante ou cancelamento do Acampamento Jovem 2021, o acampante receberá a devolução do valor pago, seguindo os seguintes critérios:
           </Typography>
           <Typography variant='body1' className={classes.paragraph}>
             - Desistência até 10/12/2020, o acampante receberá 100% do valor pago <br />    
-            - Desistência até 10/01/2021, o acampante receberá apenas 90% do valor pago <br />
-            - Desistência até 08/02/2021, o acampante receberá apenas 70% do valor pago
+            - Após a data de 10/12/2020, não serão feitas devoluções
           </Typography>  
         </div>
 
