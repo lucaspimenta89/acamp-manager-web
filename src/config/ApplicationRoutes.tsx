@@ -24,15 +24,15 @@ const routes: IRouteDefinition[] = [
     path: '/',
     component: Home
   },
-  {
-    id: 'sign-up',
-    path: '/sign-up',
-    component: (props: any) => (
-      <MainLayout {...props}>
-        <SignUp {...props} />
-      </MainLayout>
-    )
-  },
+  // {
+  //   id: 'sign-up',
+  //   path: '/sign-up',
+  //   component: (props: any) => (
+  //     <MainLayout {...props}>
+  //       <SignUp {...props} />
+  //     </MainLayout>
+  //   )
+  // },
   {
     id: 'sign-in',
     path: '/sign-in',

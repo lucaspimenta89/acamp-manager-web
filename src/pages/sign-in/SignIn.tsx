@@ -157,11 +157,11 @@ const SignInPage: React.FC<ISignInViewProps> = ({
                       Enviar
                     </Button>
                   </Box>
-                  <Box display='flex' flexDirection='row' alignItems='center'>
+                  {/* <Box display='flex' flexDirection='row' alignItems='center'>
                     <Button type='button' onClick={() => navigate('/sign-up')} color='secondary' disabled={isSubmitting}>
                       Não tem login?
                     </Button>
-                  </Box>
+                  </Box> */}
                 </form>
               )
             }

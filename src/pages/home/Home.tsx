@@ -52,11 +52,11 @@ const Home: React.FC<IHomePageProps> = () => {
             <Typography variant="h3" className={classes.heroTitle} >
               SOBREVIVENTES
             </Typography>
-            <Button variant="contained" 
+            {/* <Button variant="contained" 
               fullWidth={false}
               onClick={() => navigate('/sign-up')}>
               EFETUAR CADASTRO
-            </Button>
+            </Button> */}
           </div>
         </Container>
       </div>
